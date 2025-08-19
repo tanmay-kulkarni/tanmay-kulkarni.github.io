@@ -1,0 +1,121 @@
+/* Hide the current section name at the bottom of the page in mkdocs-terminal theme */
+.terminal-footer__title {
+    display: none !important;
+}
+
+/* Also hide the entire footer if needed */
+.terminal-footer {
+    display: none !important;
+}
+
+/* --- Enhanced Theme Colors and Styles --- */
+body,
+.md-main,
+.terminal-main {
+    background: #181c24 !important;
+    color: #e6e6e6 !important;
+}
+
+/* Header and nav bar */
+.terminal-header,
+.md-header {
+    background: #232946 !important;
+    color: #e6e6e6 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.terminal-header__title,
+.md-header__title {
+    color: #ffb800 !important;
+}
+
+/* Nav links */
+.terminal-menu__item,
+.md-nav__link {
+    color: #e6e6e6 !important;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.terminal-menu__item--active,
+.md-nav__link--active {
+    background: #ffb800 !important;
+    color: #232946 !important;
+}
+
+.terminal-menu__item:hover,
+.md-nav__link:hover {
+    background: #393e5a !important;
+    color: #ffb800 !important;
+}
+
+/* Sidebar */
+.terminal-sidebar,
+.md-sidebar {
+    background: #232946 !important;
+    color: #e6e6e6 !important;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content area */
+.terminal-content,
+.md-content {
+    background: #22262f !important;
+    color: #e6e6e6 !important;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+/* Links */
+a,
+.cert-link {
+    color: #ffb800 !important;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover,
+.cert-link:hover {
+    color: #f25f4c !important;
+}
+
+/* Buttons (for popups, etc.) */
+button,
+.md-button {
+    background: #ffb800 !important;
+    color: #232946 !important;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+button:hover,
+.md-button:hover {
+    background: #f25f4c !important;
+    color: #fff !important;
+}
+
+/* Code blocks */
+pre,
+code {
+    background: #232946 !important;
+    color: #ffb800 !important;
+    border-radius: 4px;
+}
+
+/* Section headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ffb800 !important;
+    font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+}

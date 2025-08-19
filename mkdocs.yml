@@ -1,0 +1,28 @@
+site_name: Tanmay’s Data Lab
+site_description: Personal portfolio site for Tanmay Kulkarni
+site_author: Tanmay Kulkarni
+theme:
+  name: terminal
+  palette:
+    primary: green
+    accent: blue
+  footer: ""
+  custom_dir: overrides
+nav:
+  - About: about.md
+  - Projects: projects.md
+  - Blog: blog/index.md
+  - Certifications: certifications.md
+markdown_extensions:
+  - toc
+  - tables
+  - admonition
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.superfences
+extra_css:
+  - extra.css
+  - css/pygments-default.css
+extra_javascript:
+  - cert-preview.js
+  - project-preview.js
