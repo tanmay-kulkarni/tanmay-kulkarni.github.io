@@ -40,8 +40,14 @@
 }
 
 /* Operator */
+/* Punctuation (e.g., curly braces) - mint green accent and subtle background */
 .highlight .p {
-    color: #f8f8f2
+    color: #a8ffce;
+    background: #2d3a32;
+    border-radius: 3px;
+    padding: 0 2px;
+    font-weight: bold;
+    box-shadow: 0 1px 4px #a8ffce22;
 }
 
 /* Punctuation */

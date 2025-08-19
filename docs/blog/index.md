@@ -10,5 +10,4 @@ Welcome to my blog! Here you'll find posts on data engineering, analytics, AI, a
 - [Python Data Cleaning Tricks](python-data-cleaning.md)
 - [10 Essential SQL Tips for Data Analysts](sql-tips.md)
 - [Sample Post: Data Pipeline Patterns](data-pipeline-patterns.md)
-
-<!-- Add more blog posts as needed -->
+- [Syntax Highlighting Showcase](syntax-highlighting-showcase.md)
