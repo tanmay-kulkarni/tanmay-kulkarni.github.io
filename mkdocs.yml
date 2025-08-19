@@ -3,9 +3,6 @@ site_description: Personal portfolio site for Tanmay Kulkarni
 site_author: Tanmay Kulkarni
 theme:
   name: terminal
-  palette:
-    primary: green
-    accent: blue
   footer: ""
   custom_dir: overrides
 nav:
