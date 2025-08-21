@@ -14,9 +14,10 @@
 }
 
 /* Comment */
+/* Remove special highlighting for matching braces */
 .highlight .err {
-    color: #960050;
-    background-color: #1e0010
+    color: inherit;
+    background: none;
 }
 
 /* Error */
@@ -42,12 +43,12 @@
 /* Operator */
 /* Punctuation (e.g., curly braces) - mint green accent and subtle background */
 .highlight .p {
-    color: #a8ffce;
-    background: #2d3a32;
-    border-radius: 3px;
-    padding: 0 2px;
-    font-weight: bold;
-    box-shadow: 0 1px 4px #a8ffce22;
+    color: inherit;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    font-weight: normal;
+    box-shadow: none;
 }
 
 /* Punctuation */
@@ -507,7 +508,7 @@
 
 /* Name.Tag */
 .highlight .nv {
-    color: #19469d
+    color: #56d9ff;
 }
 
 /* Name.Variable */
@@ -603,17 +604,17 @@
 
 /* Name.Builtin.Pseudo */
 .highlight .vc {
-    color: #19469d
+    color: #56d9ff;
 }
 
 /* Name.Variable.Class */
 .highlight .vg {
-    color: #19469d
+    color: #56d9ff;
 }
 
 /* Name.Variable.Global */
 .highlight .vi {
-    color: #19469d
+    color: #56d9ff;
 }
 
 /* Name.Variable.Instance */
