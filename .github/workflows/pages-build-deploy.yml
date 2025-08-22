@@ -6,13 +6,11 @@ on:
       - main
 
 jobs:
-  build-deploy:
-    name: Build and deploy MkDocs site
+  build:
+    name: Build static site
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pages: write
-      id-token: write
 
     steps:
       - name: Checkout
@@ -31,13 +29,41 @@ jobs:
       - name: Build site
         run: mkdocs build --clean
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v3
+      - name: Show built site summary (diagnostic)
+        run: |
+          echo "Site build exit status: $?."
+          echo "Contents of ./site (first 200 lines):"
+          if [ -d site ]; then
+            ls -la site | sed -n '1,200p'
+            echo "Disk usage:" ; du -sh site || true
+            echo "Sample file list:" ; find site -maxdepth 2 -type f | sed -n '1,200p' || true
+          else
+            echo "No ./site directory found"
+            exit 1
+          fi
 
-      - name: Upload artifact for Pages
+      - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./site
 
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
+
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v1
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
