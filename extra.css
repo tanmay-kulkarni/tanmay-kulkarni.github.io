@@ -1,0 +1,198 @@
+/* --- Link Styles: Animated Underline --- */
+
+a,
+.md-nav__link,
+.terminal-menu__item {
+    position: relative;
+    text-decoration: none;
+    color: #a8ffce;
+    transition: color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+
+a::after,
+.md-nav__link::after,
+.terminal-menu__item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #a8ffce;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1px;
+}
+
+
+
+a:hover,
+.md-nav__link:hover,
+.terminal-menu__item:hover {
+    color: #7be9b5 !important;
+    background: none !important;
+    text-shadow: 0 2px 8px #a8ffce80, 0 0px 2px #fff2;
+    transform: scale(1.20);
+    box-shadow: none;
+}
+
+a:hover::after,
+.md-nav__link:hover::after,
+.terminal-menu__item:hover::after {
+    width: 100%;
+}
+
+/* --- Alternate Link Hover Options --- */
+/* Option 2: Subtle background highlight */
+/*
+a:hover, .md-nav__link:hover, .terminal-menu__item:hover {
+    background: #25343b !important;
+    color: #7fd7c4 !important;
+    text-decoration: none;
+}
+*/
+
+/* Option 3: Slight scale and shadow */
+/*
+a:hover, .md-nav__link:hover, .terminal-menu__item:hover {
+    color: #7fd7c4 !important;
+    background: none !important;
+    text-decoration: none;
+    transform: scale(1.04);
+    box-shadow: 0 2px 8px rgba(127, 215, 196, 0.12);
+}
+*/
+/* Hide the current section name at the bottom of the page in mkdocs-terminal theme */
+.terminal-footer__title {
+    display: none !important;
+}
+
+/* Also hide the entire footer if needed */
+.terminal-footer {
+    display: none !important;
+}
+
+/* --- Enhanced Theme Colors and Styles --- */
+
+body,
+.md-main,
+.terminal-main {
+    background: #23272e !important;
+    /* softer dark blue-grey */
+    color: #e0e6ed !important;
+    /* slightly muted off-white */
+}
+
+/* Header and nav bar */
+
+.terminal-header,
+.md-header {
+    background: #2d333b !important;
+    /* softer blue-grey */
+    color: #e0e6ed !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+.terminal-header__title,
+.md-header__title {
+    color: #7fd7c4 !important;
+    /* soft teal accent */
+}
+
+/* Nav links */
+
+.terminal-menu__item,
+.md-nav__link {
+    color: #e0e6ed !important;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+
+.terminal-menu__item--active,
+.md-nav__link--active {
+    background: #7fd7c4 !important;
+    /* soft teal accent */
+    color: #23272e !important;
+}
+
+
+.terminal-menu__item:hover,
+.md-nav__link:hover {
+    background: #3a4756 !important;
+    /* muted blue-grey */
+    color: #7fd7c4 !important;
+}
+
+/* Sidebar */
+
+.terminal-sidebar,
+.md-sidebar {
+    background: #23272e !important;
+    color: #e0e6ed !important;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Main content area */
+.terminal-content,
+.md-content {
+    background: #22262f !important;
+    color: #e6e6e6 !important;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+/* Links */
+a,
+.cert-link {
+    color: #ffb800 !important;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover,
+.cert-link:hover {
+    color: #f25f4c !important;
+}
+
+/* Buttons (for popups, etc.) */
+button,
+.md-button {
+    background: #ffb800 !important;
+    color: #232946 !important;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+button:hover,
+.md-button:hover {
+    background: #f25f4c !important;
+    color: #fff !important;
+}
+
+/* Code blocks */
+pre,
+code {
+    background: #232946 !important;
+    color: #ffb800 !important;
+    border-radius: 4px;
+}
+
+/* Section headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ffb800 !important;
+    font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+}
