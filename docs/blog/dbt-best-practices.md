@@ -16,3 +16,6 @@ SELECT * FROM {{ ref('my_model') }} WHERE id IS NULL
 
 ## Document Your Models
 Use dbt's built-in documentation features.
+
+## Running on cloud
+Use ECS along with EventBridge to run as an event driven transformation pipeline
