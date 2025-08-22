@@ -11,3 +11,4 @@ Welcome to my blog! Here you'll find posts on data engineering, analytics, AI, a
 - [10 Essential SQL Tips for Data Analysts](sql-tips.md)
 - [Sample Post: Data Pipeline Patterns](data-pipeline-patterns.md)
 - [Syntax Highlighting Showcase](syntax-highlighting-showcase.md)
+- [My Developer Setup](my-developer-setup.md)
