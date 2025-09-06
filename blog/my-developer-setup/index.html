@@ -233,7 +233,8 @@
 <nav>
     <ul>
         <li><a href="#developer-setup-macos">Developer setup (macOS)</a></li>
-        <li><a href="#minimal-zshrc-snippet">Minimal ~/.zshrc snippet</a></li>
+        <li><a href="#minimal-zshrc-snippet">Minimal ~/.zshrc snippet</a></li><li><a href="#update-brew-itself-and-all-packages-installed-via-brew">Update brew itself and all packages installed via brew</a></li>
+        
     </ul>
 </nav>
 </aside>
@@ -262,7 +263,23 @@
 <span class="c1"># alias using eza</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;eza -l --reverse --time=modified --long&#39;</span>
 </code></pre></div>
-<p>Tips: keep packages updated via Homebrew, install fonts with Homebrew Cask (or a font manager), and use the <code>scripts/serve.sh</code> helper to preview the site locally before publishing.</p>
+<h2 id="update-brew-itself-and-all-packages-installed-via-brew">Update brew itself and all packages installed via brew</h2>
+<ul>
+<li>create the following bash script</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+brew<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>upgrade<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>cleanup<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Homebrew update complete.&quot;</span>
+</code></pre></div>
+<ul>
+<li>
+<p>make it executable with the following command
+    chmod +x brew-update.sh</p>
+</li>
+<li>
+<p>make it a command line utility like so
+    mv brew-update.sh ~/.local/bin/brew-update</p>
+</li>
+</ul>
 </section>
 
             </main>
