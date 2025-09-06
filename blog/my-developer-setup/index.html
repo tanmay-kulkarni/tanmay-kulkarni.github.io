@@ -233,7 +233,7 @@
 <nav>
     <ul>
         <li><a href="#developer-setup-macos">Developer setup (macOS)</a></li>
-        <li><a href="#minimal-zshrc-snippet">Minimal ~/.zshrc snippet</a></li><li><a href="#update-brew-itself-and-all-packages-installed-via-brew">Update brew itself and all packages installed via brew</a></li>
+        <li><a href="#recommended-tools">Recommended tools</a></li><li><a href="#minimal-zshrc-snippet">Minimal ~/.zshrc snippet</a></li><li><a href="#update-homebrew-and-all-installed-packages">Update Homebrew and all installed packages</a></li>
         
     </ul>
 </nav>
@@ -241,15 +241,17 @@
             <main id="terminal-mkdocs-main-content">
 <section id="mkdocs-terminal-content">
     <h2 id="developer-setup-macos">Developer setup (macOS)</h2>
-<p>A compact list of tools and a minimal <code>~/.zshrc</code> snippet used for local development.</p>
+<p>A compact list of useful tools and a minimal <code>~/.zshrc</code> snippet I use for local development on macOS.</p>
+<h3 id="recommended-tools">Recommended tools</h3>
 <ul>
-<li>zsh — Modern, configurable shell with strong plugin support.</li>
-<li>zsh-autosuggestions / zsh-autocomplete — Inline suggestions or completion to speed typing.</li>
-<li>starship — Fast, informative prompt that shows Git/Python status and other context.</li>
-<li>Nerd font (e.g., CascadiaCode Nerd Font) — Provides icons and ligatures for prompts and editors.</li>
-<li>eza — Modern replacement for <code>ls</code> with color, git integration, and sensible defaults.</li>
+<li><code>zsh</code> — Modern, configurable shell with strong plugin support.</li>
+<li><code>zsh-autosuggestions</code> / <code>zsh-autocomplete</code> — Inline suggestions or completion to speed typing.</li>
+<li><code>starship</code> — Fast, informative prompt that shows Git/Python status and other context.</li>
+<li>Nerd font (for example, CascadiaCode Nerd Font) — Provides icons and ligatures for prompts and editors.</li>
+<li><code>eza</code> — Modern replacement for <code>ls</code> with color, git integration, and sensible defaults.</li>
 </ul>
 <h3 id="minimal-zshrc-snippet">Minimal <code>~/.zshrc</code> snippet</h3>
+<p>Drop the following into your <code>~/.zshrc</code> (adjust paths as needed):</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># environment and path</span>
 .<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
@@ -257,33 +259,34 @@
 <span class="c1"># starship prompt</span>
 <span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>starship<span class="w"> </span>init<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="c1"># zsh autosuggestions (or autocomplete)</span>
-<span class="nb">source</span><span class="w"> </span><span class="k">$(</span>brew<span class="w"> </span>--prefix<span class="k">)</span>/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+<span class="c1"># zsh autosuggestions (installed via Homebrew)</span>
+<span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>brew<span class="w"> </span>--prefix<span class="k">)</span><span class="s2">/share/zsh-autosuggestions/zsh-autosuggestions.zsh&quot;</span>
 
-<span class="c1"># alias using eza</span>
+<span class="c1"># useful alias using eza</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;eza -l --reverse --time=modified --long&#39;</span>
 </code></pre></div>
-<h2 id="update-brew-itself-and-all-packages-installed-via-brew">Update brew itself and all packages installed via brew</h2>
-<ul>
-<li>create the following bash script</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-brew<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>upgrade<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>cleanup<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Homebrew update complete.&quot;</span>
+<p>Notes:
+- Ensure <code>~/.local/bin</code> is created and on your <code>PATH</code> before adding scripts there.
+- If you installed <code>zsh-autosuggestions</code> with Homebrew, the <code>$(brew --prefix)</code> expansion points to the right location.</p>
+<hr />
+<h2 id="update-homebrew-and-all-installed-packages">Update Homebrew and all installed packages</h2>
+<p>Keep a small helper script to update Homebrew and all installed packages. Create a file called <code>brew-update.sh</code> with these contents:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+
+<span class="c1"># update Homebrew metadata, upgrade all packages, then clean old versions</span>
+brew<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>upgrade<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>brew<span class="w"> </span>cleanup
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Homebrew update complete.&quot;</span>
 </code></pre></div>
-<ul>
-<li>
-<p>make it executable with the following command</p>
-<ul>
-<li><code>chmod +x brew-update.sh</code></li>
-</ul>
-</li>
-<li>
-<p>make it a command line utility like so</p>
-<ul>
-<li><code>mv brew-update.sh ~/.local/bin/brew-update</code></li>
-</ul>
-</li>
-</ul>
+<p>Make it executable and (optionally) move it into <code>~/.local/bin</code> so you can run it from anywhere:</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>brew-update.sh
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/.local/bin
+mv<span class="w"> </span>brew-update.sh<span class="w"> </span>~/.local/bin/brew-update
+</code></pre></div>
+<p>Now you can run <code>brew-update</code> from the command line.</p>
+<p>Optional: add <code>~/.local/bin</code> to your <code>PATH</code> in <code>~/.zshrc</code> if it isn't already:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</code></pre></div>
 </section>
 
             </main>
